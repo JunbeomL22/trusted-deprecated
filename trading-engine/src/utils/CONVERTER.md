@@ -65,7 +65,7 @@ let lower: u32 = (x & 0x0f000f00) >> 8;
 // [0x04, 0x00, 0x02, 0x00] >> 8 = [0x00, 0x04, 0x00, 0x02]
 let upper: u32 = (x & 0x000f000f) * 10; 
 // [0x00, 0x03, 0x00, 0x01] * 10 =  [00, 30, 00, 10] (formally, not rigorous bit representation)
-let chunk = lower + upper 
+let chunk = lower + upper;
 // [00, 34, 00, 12]
 let lower: u32 = (chunk & 0x00ff0000) >> 16; 
 // [00, 34, 00, 12] >> 16 = [00, 00, 00, 34] = 34
