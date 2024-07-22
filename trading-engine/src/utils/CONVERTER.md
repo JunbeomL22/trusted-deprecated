@@ -20,7 +20,7 @@ let s = b"1234"; // in memory [0x34, 0x33, 0x32, 0x31]
 * when bit shifts, the blank bit is filled bwith zero
 ```Rust
 let x: u8 = 3; // 0000 0011
-assert_eq!(x << 1, 6); // 0000 0100
+assert_eq!(x << 1, 6); // 0000 0110
 assert_eq!(x >> 1, 1); // 0000 0001
 ``` 
 ## Examples
