@@ -1,4 +1,3 @@
-
 # Integer converter using bit operation
 reference: [here](https://rust-malaysia.github.io/code/2020/07/11/faster-integer-parsing.html)
 
@@ -30,7 +29,7 @@ assert_eq!(x >> 1, 1); // 0000 0001
 let x: &[u8; 1] = b"8";
 let x: u8 = unsafe { std::ptr::read_unaligned(x.as_ptr() as *const u8) };
 let y: u8 = x & 0x0f;
-//   0001 1000
+//   0011 1000
 //   &
 //   0000 1111
 // = 0000 1000 = 8
@@ -41,14 +40,14 @@ assert_eq!(y, 8);
 let x: &[u8; 2] = b"12"; // [0x32, 0x31]
 let x: u16 = unsafe { std::ptr::read_unaligned(x.as_ptr() as *const u16) };
 let lower: u16 = (x & 0x0f00) >> 8;
-//   0001 0002 0001 0001
+//   0011 0002 0011 0001
 //   &
 //   0000 1111 0000 0000
 // = 0000 0002 0000 0001
 // =>
 // (0000 0002 0000 0001) >> 8 = 0000 0000 0000 0002
 let upper: u16 = (x & 0x000f) * 10;
-//   0001 0002 0001 0001
+//   0011 0002 0011 0001
 //   &
 //   0000 0000 0000 1111
 // = 0000 0000 0000 0001
