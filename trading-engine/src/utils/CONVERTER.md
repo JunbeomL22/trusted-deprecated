@@ -17,7 +17,7 @@ let x9 = b"9"; // = 0x39 = 0b 0011 0009
 let x: u8 = 19; // = 2^4 + 2^1 + 2^0 => (0b) 0001 0011
 let s = b"1234"; // in memory [0x34, 0x33, 0x32, 0x31]
 ```
-* when bit shifts, the blank bit is filled bwith zero
+* when bit shifts, the blank bit is filled with zero
 ```Rust
 let x: u8 = 3; // 0000 0011
 assert_eq!(x << 1, 6); // 0000 0110
