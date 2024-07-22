@@ -85,3 +85,12 @@ let x: u32 = unsafe { std::ptr::read_unaligned(x.as_ptr() as *const u32) };
 // in this case x is formally "123? => [??, 0x33, 0x32, 0x31]
 let x = x << 8; // [0x33, 0x32, 0x31, 0x00] // something like "0123" as desirable 
 ```
+
+### negative number
+```Rust
+let x = b"-123";
+let x_u = x[1..]; // b"123"
+let x_u: u32 = bit_parse(x_u);
+let res: i32 = (!x_u).wrapping_add(1) as i32 
+asset_eq!(res, -123);
+```
